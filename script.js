@@ -7,6 +7,7 @@ const stopButton = document.getElementById('stop-button');
 const speedSlider = document.getElementById('speed-slider');
 const randomButton = document.getElementById('random-button');
 const clearButton = document.getElementById('clear-button');
+const randomPercentageSlider = document.getElementById('random-percentage-slider');
 
 let grid = [];
 let rows = 40;
@@ -14,15 +15,6 @@ let cols = 60;
 let isPlaying = false;
 let intervalId;
 
-function initializeGrid() {
-    grid = [];
-    for (let i = 0; i < rows; i++) {
-        grid[i] = [];
-        for (let j = 0; j < cols; j++) {
-            grid[i][j] = Math.random() < 0.5 ? 1 : 0; // Randomly initialize cells
-        }
-    }
-}
 
 function createGrid() {
     let table = document.createElement('table');
@@ -144,7 +136,7 @@ function validateRule(event) {
     const ruleInput = event.target;
     const ruleValue = ruleInput.value;
 
-    if (!/^\d+$/.test(ruleValue) || ruleValue.length > 2 || parseInt(ruleValue) > 88) {
+    if (!/^[0-9]+$/.test(ruleValue)) {
         ruleInput.style.backgroundColor = 'red';
     } else {
         ruleInput.style.backgroundColor = '';
@@ -159,8 +151,8 @@ randomButton.addEventListener('click', handleRandom);
 clearButton.addEventListener('click', handleClear);
 
 function handleRandom() {
-    initializeGrid();
-    createGrid();
+initializeGrid();
+createGrid();
 }
 
 function handleClear() {
@@ -169,6 +161,17 @@ function handleClear() {
             grid[i][j] = 0;
             let cell = document.querySelector('td[data-row="' + i + '"][data-col="' + j + '"]');
             cell.classList.remove('alive');
+        }
+    }
+}
+
+function initializeGrid() {
+    grid = [];
+    const randomPercentage = randomPercentageSlider.value / 100;
+    for (let i = 0; i < rows; i++) {
+        grid[i] = [];
+        for (let j = 0; j < cols; j++) {
+            grid[i][j] = Math.random() < randomPercentage ? 1 : 0;
         }
     }
 }

@@ -11,7 +11,7 @@ body {
 
 #grid-container {
     flex: 2; /* Take up 2/3 of the space */
-    overflow: auto; /* Enable scrolling within the grid container if needed */
+    overflow: hidden; /* Hide scrollbars */
 }
 
 #settings {
@@ -39,11 +39,11 @@ button {
     background-color: #ddd; /* Light gray button background */
     border: none;
     color: #333;
-    padding: 5px 10px;
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 21px;
     cursor: pointer;
 }
 
@@ -78,12 +78,57 @@ button {
 
 #rules {
     margin-bottom: 20px;
+    text-align: center; /* Center the heading */
 }
 
-.rule-input {
+#rules h3 {
+    text-align: center;
+    margin-bottom: 10px; /* Add space between heading and input boxes */
+}
+
+.rules-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for the input boxes */
+    grid-column-gap: 10px; /* Add some space between the columns */
+    margin-top: 10px; /* Add space between the heading and the input boxes */
+}
+
+.rule-input-container {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: center; /* Center the content horizontally */
+    margin: 5px;
+}
+
+.rule-input label {
+    margin-bottom: 5px; /* Add space between label and input */
+}
+
+.rule-input input {
+    width: 80%; /* Make input fill the container */
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+#rules {
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+}
+
+#rules h3 {
+    text-align: center;
+    margin-bottom: 10px; /* Add space between heading and input boxes */
+}
+
+.rule-input label {
+    display: block; /* Place label above the input */
+    text-align: center;
+}
+
+.rule-input input {
+    width: 100%; /* Make input fill the container */
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in width */
 }
 
 .rule-input label {
@@ -99,8 +144,17 @@ button {
     margin-bottom: 20px;
 }
 
+.playback-controls {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
 #reset-controls {
     margin-bottom: 20px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 h1 {
