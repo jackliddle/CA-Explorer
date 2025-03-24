@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jack's Cellular Automata Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Jack's Cellular Automata Explorer</h1>
+    <div id="container">
+        <div id="grid-container">
+            <h2>Grid</h2>
+            <table id="grid"></table>
+        </div>
+        <div id="settings">
+            <h2>Settings</h2>
+            <div id="rules">
+                <h3>Rules</h3>
+                <div class="rule-input">
+                    <label for="birth-rule">Birth:</label>
+                    <input type="number" id="birth-rule" min="0" max="8" value="3">
+                </div>
+                <div class="rule-input">
+                    <label for="survival-rule">Survival:</label>
+                    <input type="number" id="survival-rule" min="0" max="8" value="23">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="controls">
+        <button id="step-button">Step</button>
+        <button id="play-button">Play</button>
+        <button id="stop-button">Stop</button>
+        <label for="speed-slider">Speed:</label>
+        <input type="range" id="speed-slider" min="1" max="10" value="5">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+}
+
+#container {
+    display: flex;
+}
+
+#grid-container {
+    margin-right: 20px;
+}
+
+#grid {
+    border-collapse: collapse;
+}
+
+#grid td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+#grid td.alive {
+    background-color: black;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+.rule-input {
+    display: flex;
+    align-items: center;
+}
+
+.rule-input input {
+    width: 50px;
+    text-align: center;
+}
