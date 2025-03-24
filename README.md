@@ -1,5 +1,9 @@
 # Jack's Cellular Automata Explorer
 
+[View Live Demo](https://jackliddle.github.io/CA-Explorer/)
+
+This is a web-based cellular automata explorer that allows you to visualize and experiment with different cellular automata rule sets, such as Conway's Game of Life.
+
 This is a web-based cellular automata explorer that allows you to visualize and experiment with different cellular automata rule sets, such as Conway's Game of Life.
 
 ## Features
