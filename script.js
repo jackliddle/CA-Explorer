@@ -5,10 +5,12 @@ const stepButton = document.getElementById('step-button');
 const playButton = document.getElementById('play-button');
 const stopButton = document.getElementById('stop-button');
 const speedSlider = document.getElementById('speed-slider');
+const randomButton = document.getElementById('random-button');
+const clearButton = document.getElementById('clear-button');
 
 let grid = [];
-let rows = 30;
-let cols = 30;
+let rows = 40;
+let cols = 60;
 let isPlaying = false;
 let intervalId;
 
@@ -77,7 +79,7 @@ function updateGrid() {
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
             grid[i][j] = nextGrid[i][j];
-let cell = document.querySelector(`td[data-row="\${i}"][data-col="\${j}"]`);
+            let cell = document.querySelector('td[data-row="' + i + '"][data-col="' + j + '"]');
             if (grid[i][j] === 1) {
                 cell.classList.add('alive');
             } else {
@@ -124,8 +126,6 @@ function handleStop() {
     isPlaying = false;
     clearInterval(intervalId);
     playButton.textContent = 'Play';
-    initializeGrid();
-    createGrid();
 }
 
 function handleSpeedChange() {
@@ -137,18 +137,41 @@ function handleSpeedChange() {
     }
 }
 
-birthRuleInput.addEventListener('change', () => {
-    // You might want to add validation here to ensure the value is within the valid range
-});
+birthRuleInput.addEventListener('change', validateRule);
+survivalRuleInput.addEventListener('change', validateRule);
 
-survivalRuleInput.addEventListener('change', () => {
-    // You might want to add validation here to ensure the value is within the valid range
-});
+function validateRule(event) {
+    const ruleInput = event.target;
+    const ruleValue = ruleInput.value;
+
+    if (!/^\d+$/.test(ruleValue) || ruleValue.length > 2 || parseInt(ruleValue) > 88) {
+        ruleInput.style.backgroundColor = 'red';
+    } else {
+        ruleInput.style.backgroundColor = '';
+    }
+}
 
 stepButton.addEventListener('click', handleStep);
 playButton.addEventListener('click', handlePlay);
 stopButton.addEventListener('click', handleStop);
 speedSlider.addEventListener('input', handleSpeedChange);
+randomButton.addEventListener('click', handleRandom);
+clearButton.addEventListener('click', handleClear);
+
+function handleRandom() {
+    initializeGrid();
+    createGrid();
+}
+
+function handleClear() {
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            grid[i][j] = 0;
+            let cell = document.querySelector('td[data-row="' + i + '"][data-col="' + j + '"]');
+            cell.classList.remove('alive');
+        }
+    }
+}
 
 initializeGrid();
 createGrid();

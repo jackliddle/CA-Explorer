@@ -5,34 +5,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Jack's Cellular Automata Explorer</h1>
     <div id="container">
-        <div id="grid-container">
-            <h2>Grid</h2>
+<div id="grid-container">
             <table id="grid"></table>
         </div>
-        <div id="settings">
-            <h2>Settings</h2>
+<div id="settings">
+            <h1>Jack's Cellular Automata Explorer</h1>
+            <p>
+                Define the rules for cell birth and survival. For example, Conway's Game of Life is B3/S23 (Birth on 3 neighbors, Survival on 2 or 3 neighbors).
+            </p>
             <div id="rules">
                 <h3>Rules</h3>
-                <div class="rule-input">
+<div class="rule-input">
                     <label for="birth-rule">Birth:</label>
-                    <input type="number" id="birth-rule" min="0" max="8" value="3">
+                    <input type="text" id="birth-rule" value="3">
                 </div>
                 <div class="rule-input">
                     <label for="survival-rule">Survival:</label>
-                    <input type="number" id="survival-rule" min="0" max="8" value="23">
+                    <input type="text" id="survival-rule" value="23">
                 </div>
             </div>
-        </div>
-    </div>
+            <div id="controls">
+                <button id="step-button">Step</button>
+                <button id="play-button">Play</button>
+                <button id="stop-button">Stop</button>
+                <label for="speed-slider">Speed:</label>
+                <input type="range" id="speed-slider" min="1" max="10" value="5">
+            </div>
 
-    <div id="controls">
-        <button id="step-button">Step</button>
-        <button id="play-button">Play</button>
-        <button id="stop-button">Stop</button>
-        <label for="speed-slider">Speed:</label>
-        <input type="range" id="speed-slider" min="1" max="10" value="5">
+            <div id="reset-controls">
+                <button id="random-button">Random</button>
+                <button id="clear-button">Clear</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
