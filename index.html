@@ -3,20 +3,20 @@
 <head>
     <title>Jack's Cellular Automata Explorer</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div id="container">
-<div id="grid-container">
+        <div id="grid-container">
             <table id="grid"></table>
         </div>
-<div id="settings">
+        <div id="settings">
             <h1>Jack's Cellular Automata Explorer</h1>
-            <div style="text-align: center; margin-bottom: 10px;">
+            <div class="github-link">
                 <a href="https://github.com/jackliddle/CA-Explorer">View on GitHub</a>
             </div>
             <p>
-                Cellular automata are discrete models studied in computer science, mathematics, and theoretical biology.
-                This explorer allows you to visualize and experiment with different cellular automata rule sets.
+                A tool for visualizing and experimenting with cellular automata rule sets.
             </p>
             <p>
                 Clicking on a cell toggles its state between alive and dead.
@@ -24,37 +24,43 @@
             <p>
                 Define the rules for cell birth and survival. For example, Conway's Game of Life is B3/S23 (Birth on 3 neighbors, Survival on 2 or 3 neighbors).
             </p>
-<div id="rules">
-                <h3 style="text-align: center;">Rules</h3>
+            
+            <div id="rules" class="section">
+                <h3>Rules</h3>
                 <div class="rules-container">
                     <div class="rule-input-container">
-                        <label for="birth-rule">Birth:</label>
+                        <label for="birth-rule">Birth</label>
                         <input type="text" id="birth-rule" value="3">
                     </div>
                     <div class="rule-input-container">
-                        <label for="survival-rule">Survival:</label>
+                        <label for="survival-rule">Survival</label>
                         <input type="text" id="survival-rule" value="23">
                     </div>
                 </div>
             </div>
-<div id="controls">
+            
+            <div id="controls" class="section">
+                <h3>Playback</h3>
                 <div class="playback-controls">
                     <button id="step-button">Step</button>
                     <button id="play-button">Play</button>
                     <button id="stop-button">Stop</button>
                 </div>
-                <div style="text-align: center;">
-                    <label for="speed-slider">Speed:</label>
-                    <input type="range" id="speed-slider" min="1" max="10" value="5" style="width: 80%;">
+                <div class="slider-container">
+                    <label for="speed-slider">Speed</label>
+                    <input type="range" id="speed-slider" min="1" max="10" value="5">
                 </div>
             </div>
 
-            <div id="reset-controls">
-<button id="random-button">Random</button>
-                <button id="clear-button">Clear</button>
-                <div style="text-align: center;">
-                    <label for="random-percentage-slider">Random %:</label>
-                    <input type="range" id="random-percentage-slider" min="0" max="100" value="50" style="width: 80%;">
+            <div id="reset-controls" class="section">
+                <h3>Grid Controls</h3>
+                <div class="reset-buttons">
+                    <button id="random-button">Random</button>
+                    <button id="clear-button">Clear</button>
+                </div>
+                <div class="slider-container">
+                    <label for="random-percentage-slider">Random %</label>
+                    <input type="range" id="random-percentage-slider" min="0" max="100" value="50">
                 </div>
             </div>
         </div>
